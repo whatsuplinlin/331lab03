@@ -1,6 +1,9 @@
 <template>
   <div class="event-card">
-    <span>@{{ event.category }} {{ event.organizer }}</span>
+    <h3>{{ student.name }} {{ student.surname }}</h3>
+    <h4>GPA: {{ student.gpa }} PenAmount: {{ student.penAmount }}</h4>
+    <h4>{{ student.description }}</h4>
+    <img :src="student.image" class="image" />
   </div>
 </template>
 
@@ -8,7 +11,7 @@
 export default {
   name: 'EventCard',
   props: {
-    event: {
+    student: {
       type: Object,
       required: true
     }
@@ -24,8 +27,14 @@ export default {
   border: 1px solid #39495c;
   margin-bottom: 18px;
 }
+
 .event-card:hover {
   transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 12px 0 rgba (0, 0, 0, 0.2);
+}
+
+.image {
+  width: 200px;
+  height: 200px;
 }
 </style>

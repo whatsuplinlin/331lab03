@@ -1,33 +1,28 @@
 <template>
   <h1>Events for Good</h1>
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
-  </div>
-  <div class="category">
-    <Category v-for="event in events" :key="event.id" :event="event" />
+    <Student v-for="student in students" :key="student.id" :student="student" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import EventCard from '@/components/EventCard.vue'
-import Category from '@/components/Category.vue'
-import EventService from '/Users/jeongmin/Desktop/compobased/331lab03/331lab03/services/EventService.js'
+import Student from '@/components/Student.vue'
+import StudentService from '/Users/jeongmin/Desktop/compobased/331lab03/331lab03/services/StudentService.js'
 export default {
-  name: 'EventListView',
+  name: 'StudentView',
   components: {
-    EventCard,
-    Category
+    Student
   },
   data() {
     return {
-      events: null
+      students: null
     }
   },
   created() {
-    EventService.getEvents()
+    StudentService.getEvents()
       .then((response) => {
-        this.events = response.data
+        this.students = response.data
       })
       .catch((error) => {
         console.log(error)
