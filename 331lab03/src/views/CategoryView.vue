@@ -1,8 +1,5 @@
 <template>
   <h1>Events for Good</h1>
-  <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
-  </div>
   <div class="category">
     <Category v-for="event in events" :key="event.id" :event="event" />
   </div>
@@ -10,12 +7,10 @@
 
 <script>
 // @ is an alias to /src
-import EventCard from '@/components/EventCard.vue'
 import Category from '@/components/Category.vue'
 export default {
-  name: 'HomeView',
+  name: 'CategoryView',
   components: {
-    EventCard,
     Category
   },
   data() {
